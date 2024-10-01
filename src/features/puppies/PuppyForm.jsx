@@ -12,9 +12,11 @@ export default function PuppyForm() {
 
   function postPuppy(event) {
     event.preventDefault();
-
-    // Placeholder image w/ random photos of dogs
-    const imageUrl = "https://loremflickr.com/200/300/dog";
+    addPuppy({
+      name,
+      breed,
+      imageUrl: "https://loremflickr.com/200/300/dog",
+    });
   }
 
   return (

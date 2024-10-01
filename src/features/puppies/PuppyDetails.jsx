@@ -1,4 +1,5 @@
 import { useDeletePuppyMutation, useGetPuppyQuery } from "./puppySlice";
+import { useState } from "react";
 
 /**
  * @component
@@ -7,13 +8,13 @@ import { useDeletePuppyMutation, useGetPuppyQuery } from "./puppySlice";
  */
 export default function PuppyDetails({ selectedPuppyId, setSelectedPuppyId }) {
   // TODO: Grab data from the `getPuppy` query
-  const { data: puppy, error, isLoading } = useGetPuppyQuery(selectedPuppyId);
+  const { data: puppy, isLoading } = useGetPuppyQuery(selectedPuppyId);
   // TODO: Use the `deletePuppy` mutation to remove a puppy when the button is clicked
 
   const [deletePuppy] = useDeletePuppyMutation();
 
   function removePuppy(id) {
-    setSelectedPuppyId(null);
+    setSelectedPuppyId();
     deletePuppy(id);
   }
 
